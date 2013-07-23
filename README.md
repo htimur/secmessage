@@ -10,8 +10,17 @@ Javascript encryption is [by no means secure](http://www.matasano.com/articles/j
 
 Clone this repository.
 
-run `npm install` inside the secmessage directory to install all dependent nodejs modules.
-run `bower install` inside the public directory to install all dependent javascript libraries modules.
+run
+
+    npm install
+
+inside the secmessage directory to install all dependent nodejs modules.
+
+run
+
+    bower install
+
+inside the public directory to install all dependent javascript libraries modules.
 
 ##TODO
 
