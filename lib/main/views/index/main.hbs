@@ -1,0 +1,56 @@
+<div class="alert alert-info">
+    <p>{{ title }} is a simple service that stores encrypted messages for you, encrypted in by your browser.</p>
+</div>
+<div ng-controller="AlertsCtrl">
+    <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{[ alert.msg ]}</alert>
+</div>
+<div class="main-view" ng-controller="SecMessageCtrl">
+    <form name="mainForm" method="post" ng-submit="send()">
+        <fieldset>
+            <legend>Welcome to {{ title }}</legend>
+            <div class="control-group">
+                <label class="control-label" for="to">recipient:</label>
+
+                <div class="controls">
+                    <input ng-model="email" id="to" name="email" type="email" placeholder="name@example.com" required/>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <textarea ng-model="message" maxlength="140" id="msg" placeholder="Type your message here" required></textarea>
+                </div>
+            </div>
+            <input id="message" value="" type="hidden" name="message"/>
+
+            <div class="help-block">
+                <em>hint: use a password that is long, and contains at least some spaces and numbers!</em>
+            </div>
+            <div>
+                <input class="btn" id="btn-encrypt" type="button" ng-click="modalOpen()" ng-disabled="mainForm.$invalid" value="encrypt"/>
+                <input class="btn" id="btn-send" type="submit" value="send messsage" ng-disabled="!encrypted"/>
+            </div>
+        </fieldset>
+    </form>
+
+    <div modal="encryptionKeyModal" close="modalClose()" options="modalOpts">
+        <div class="modal-header">
+            <h4>Enter your encryption key</h4>
+        </div>
+        <div class="modal-body">
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label" for="key">Key:</label>
+
+                    <div class="controls">
+                        <input ng-model="secret" id="key" name="key" type="password" required/>
+                    </div>
+                </div>
+            </fieldset>
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn" ng-click="encrypt()">encrypt</button>
+        </div>
+    </div>
+</div>
+

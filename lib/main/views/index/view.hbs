@@ -1,0 +1,50 @@
+<div class="alert alert-info">
+    <p>{{ title }} is a simple service that stores encrypted messages for you, encrypted in by your browser.</p>
+</div>
+<div ng-controller="AlertsCtrl">
+    <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{[ alert.msg ]}</alert>
+</div>
+<div class="main-view">
+    <div class="row">
+        <div class="span3">
+            create a new message <a href="#/main">here</a>
+        </div>
+    </div>
+    <div class="view-container" ng-show="encryptedMessage != undefined">
+        <div class="row">
+            <div class="span3">
+                <h4>Your message:</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span3">
+                <textarea readonly="true" ng-model="message" placeholder="***"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span3">
+                <button class="btn btn-primary" ng-click="decryptModalOpen()">decrypt</button>
+                <button class="btn btn-danger" ng-click="delete()">delete</button>
+            </div>
+        </div>
+    </div>
+    <div modal="decryptionKeyModal" close="decryptModalClose()" options="modalOpts">
+        <div class="modal-header">
+            <h4>Enter your decryption key</h4>
+        </div>
+        <div class="modal-body">
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label" for="key">Key:</label>
+
+                    <div class="controls">
+                        <input ng-model="secret" id="key" name="key" type="password" required/>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" ng-click="decrypt()">decrypt</button>
+        </div>
+    </div>
+</div>

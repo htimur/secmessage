@@ -1,0 +1,5 @@
+app:
+  port: 3000
+  pub_dir: '/public'
+  cookie_secret: '83be60e3e0435fc2e07bc79fe84b4567'
+  dsn: 'mongodb://localhost/test'
