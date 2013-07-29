@@ -8,6 +8,11 @@ Javascript encryption is [by no means secure](http://www.matasano.com/articles/j
 
 ## Installation
 
+Install [forever](https://github.com/nodejitsu/forever) and [supervisor](https://github.com/isaacs/node-supervisor)
+
+     $ [sudo] npm install forever -g
+     $ [sudo] npm install supervisor -g
+
 Clone this repository.
 
 run
