@@ -5,7 +5,7 @@
     "main" : "./app.js",
     "repository": {
         "type": "git",
-        "url": "git@github.com:whatser/securli.git"
+        "url": "git@github.com:htimur/secmessage.git"
     },
     "scripts": {
         "test": "./node_modules/mocha/bin/mocha -u tdd -R dot `find lib -name '*Test.js'`",
